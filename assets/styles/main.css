@@ -256,53 +256,6 @@ form {
 .cancel-btn:hover {
     background-color: #D81B60;
 }
-/* utils */
-.u-hidden {
-    display: none;
-}
-.u-loading {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    position: absolute;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    transition-duration: 0.5s;
-    background-color: rgba(0,0,0,0.8);
-}
-.u-loading p {
-    color: #FFF;
-    font-size: 14px;
-    margin-top: 16px;
-}
-.u-loading img {
-    width: 50px;
-    animation: loading-animation 2s infinite ease;
-}
-.u-loading.is-active {
-    opacity: 1;
-    z-index: 10;
-}
-
-@keyframes loading-animation {
-    0% { transform: scale(1); }
-    50% { transform: scale(0.8);}
-    100% { transform: scale(1); }
-}
-
-/* print time */
-@media print {
-    .container, .u-loading {
-        display: none;
-    }
-}
 
 /* ---------- CARTS ---------- */
 .cards-container {
@@ -372,4 +325,84 @@ form {
 }
 .qr-data {
     margin-bottom: 22px;
+}
+
+/* labels */
+.edit-label-container {
+    width: 90%;
+    display: flex;
+    padding: 16px;
+    max-width: 600px;
+    margin: 16px auto;
+    border-radius: 8px;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    border: 1px dashed #2C3E50;
+}
+.edit-label-container p {
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+.label-edit-row {
+    width: 100%;
+    display: flex;
+}
+.label-edit-row input {
+    width: 100%;
+    border: none;
+    font-size: 14px;
+    padding: 8px 10px;
+    background-color: transparent;
+    border-bottom: 2px solid #CCC;
+}
+.label-edit-row input:focus {
+    border-bottom-color: #1E88E5;
+}
+
+/* utils */
+.u-hidden {
+    display: none;
+}
+.u-loading {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    transition-duration: 0.5s;
+    background-color: rgba(0,0,0,0.8);
+}
+.u-loading p {
+    color: #FFF;
+    font-size: 14px;
+    margin-top: 16px;
+}
+.u-loading img {
+    width: 50px;
+    animation: loading-animation 2s infinite ease;
+}
+.u-loading.is-active {
+    opacity: 1;
+    z-index: 10;
+}
+
+@keyframes loading-animation {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.8);}
+    100% { transform: scale(1); }
+}
+
+/* print time */
+@media print {
+    .container, .u-loading, .edit-label-container {
+        display: none;
+    }
 }

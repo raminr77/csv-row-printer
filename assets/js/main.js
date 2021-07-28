@@ -23,6 +23,8 @@ const QRCheckbox = document.querySelector(".js-qr-checkbox input");
 const RTLCheckbox = document.querySelector(".js-rtl-checkbox input");
 const customUploadInput = document.querySelector(".custom-upload-btn");
 const configContainer = document.querySelector(".print-config-container");
+const labelsEditContainer = document.querySelector(".edit-label-container");
+const labelInputsContainer = document.querySelector(".labels-edit-container");
 
 // local variable
 let DATA = [];
@@ -121,6 +123,29 @@ function showCarts (){
     return checkedItem.length > 0;
 }
 
+function changeLabel (labelId, newLabel){
+    console.log(labelId);
+    const labels = document.querySelectorAll(`[data-label-id='${labelId}']`);
+    labels.forEach(label => {
+        label.innerHTML = `${newLabel} : `;
+    });
+}
+
+function createLabelsInput (label){
+    const labelRow = document.createElement("div");
+    const labelInput = document.createElement("input");
+
+    labelInput.value = label;
+    labelRow.classList = "label-edit-row"
+
+    labelRow.appendChild(labelInput);
+    labelInputsContainer.appendChild(labelRow);
+
+    labelInput.addEventListener("keyup", e => {
+        changeLabel(label, e.target.value);
+    });
+}
+
 // card functions
 function filterCSVData(selectedCols = []){
     if(selectedCols.length === 0){
@@ -128,21 +153,27 @@ function filterCSVData(selectedCols = []){
         return;
     }
     cardsContainer.innerHTML = "";
+    labelInputsContainer.innerHTML = "";
     const footerText = footerInput.value;
     const headerText = headerInput.value;
 
     let dataTemp = DATA.slice(parseInt(rangeStartInput.value) - 1, parseInt(rangeEndInput.value));
-
+    let labels = [];
     dataTemp.forEach(dataItem => {
         let filteredRowData = dataItem.filter(
             (itemCol, itemIndex) => selectedCols.includes(itemIndex)
         );
         if(filteredRowData.length > 0){
+            labels = filteredRowData; 
             createCard(filteredRowData, selectedCols, headerText, footerText);
         } else {
             showMessage("Some of your lines do not have the columns value!", true);
         }
     });
+    labels.forEach((value, index) => {
+        createLabelsInput(COLS_TITLE[selectedCols[index]]);
+    });
+    labelsEditContainer.classList.remove("u-hidden");
     cardsContainer.scrollIntoView();
 }
 
@@ -172,6 +203,7 @@ function createCard(cardData = [], selectedCols = [], headerText, footerText){
         const labelElm = document.createElement("label");
         const valueElm = document.createElement("label");
         row.classList = RTLCheckbox.checked ? "card-row is-rtl" : "card-row";
+        labelElm.setAttribute("data-label-id", label);
         labelElm.classList = "card-item-label";
         valueElm.classList = "card-item-value";
         labelElm.innerHTML = label + " : ";
@@ -214,7 +246,9 @@ fileInput.addEventListener("change", e => {
     selector.innerHTML = "";
     selector.disabled = true;
     message.classList.add("u-hidden");
+    labelInputsContainer.innerHTML = "";
     configContainer.classList.add("u-hidden");
+    labelsEditContainer.classList.add("u-hidden");
     const file = e.target.files[0];
     if(!file){
         activeUploadButton(false);
