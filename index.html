@@ -13,28 +13,28 @@
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v29.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <!-- Upload & Config -->
+    <!-- Main -->
     <div class="container">
         <img src="./assets/icon.png" alt="CSV Printer" />
         <h1>CSV Row Printer</h1>
-        
         <span>
             After uploading your file, select the columns you want and <strong>Print</strong> or <strong>Save PDF</strong> them as organized and designed pages.
             <br/>
             You can viwe the <a style="display: inl;" href="https://github.com/raminr77" target="blank">GitHub</a> page.
         </span>
-
+        <!-- Mesages -->
         <p class="js-message u-hidden"></p>
+        <!-- Upload Form -->
         <form>
             <label class="custom-upload-btn">
                 <div class="upload-btn-text">Select Your CSV File</div>
                 <input class="file-input" type="file" accept=".csv" />
             </label>
         </form>
+        <!-- Settings -->
         <div class="print-config-container u-hidden">
             <p>Select Your Cols</p>
             <div class="cols-item-form cols-container"></div>
-            
             <div class="config-row">
                 <label class="js-qr-checkbox"><input type="checkbox" value="rtl" />QR Code</label>
                 <input class="qr-data u-hidden" type="text" placeholder="Type Your QR Data Or Selected Cols Name ..." />
@@ -51,12 +51,10 @@
                     </div>
                 </div>
             </div>
-
             <div class="input-row">
                 <input class="header-input" maxlength="40" type="text" placeholder="Type Your Header Text ..." />
                 <input class="footer-input" maxlength="40" type="text" placeholder="Type Your Footer Text ..." />
             </div>
-            
             <div class="btn-row">
                 <button class="cancel-btn" type="button">Cancel</button>
                 <button class="show-btn" type="button">Show</button>
