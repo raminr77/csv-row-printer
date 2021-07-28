@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSV Row Printer</title>
+    <script src="./assets/main.js" defer></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="./assets/papaparse.min.js" defer></script>
+    <link rel="icon" type="images/png" href="./assets/icon.png">
+    <link rel="stylesheet" type="text/css" href="./assets/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <!-- Upload & Config -->
+    <div class="container">
+        <img src="./assets/icon.png" alt="CSV Printer" />
+        <h1>CSV Row Printer</h1>
+        
+        <span>
+            After uploading your file, select the columns you want and <strong>Print</strong> or <strong>Save PDF</strong> them as organized and designed pages.
+            <br/>
+            You can viwe the <a style="display: inl;" href="https://github.com/raminr77" target="blank">GitHub</a> page.
+        </span>
+
+        <p class="js-message u-hidden"></p>
+        <form>
+            <label class="custom-upload-btn">
+                <div class="upload-btn-text">Select Your CSV File</div>
+                <input class="file-input" type="file" accept=".csv" />
+            </label>
+        </form>
+        <div class="print-config-container u-hidden">
+            <p>Select Your Cols</p>
+            <div class="cols-item-form cols-container"></div>
+            
+            <div class="config-row">
+                <label class="js-rtl-checkbox"><input type="checkbox" value="rtl" />RTL Card</label>
+                <label class="selector">
+                    Merge Rows With:
+                    <select class="js-selector"></select>
+                </label>
+            </div>
+
+            <div class="input-row">
+                <input class="header-input" maxlength="40" type="text" placeholder="Type Your Header Text ..." />
+                <input class="footer-input" maxlength="40" type="text" placeholder="Type Your Footer Text ..." />
+            </div>
+            
+            <div class="btn-row">
+                <button class="cancel-btn" type="button">Cancel</button>
+                <button class="show-btn" type="button">Show</button>
+                <button class="print-btn" type="button">Print</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading -->
+    <div class="u-loading">
+        <img src="./assets/icon.png" alt="CSV Printer" />
+        <p>Loading ...</p>
+    </div>
+    
+    <!-- CARTS -->
+    <div id="cards-container" class="cards-container"></div>
+</body>
+</html>
