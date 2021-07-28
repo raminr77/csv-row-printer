@@ -4,6 +4,7 @@ const UPLOAD_BTN_TEXTS = {
     true: "Selected Your File",
 };
 // elements
+const QRData = document.querySelector(".qr-data");
 const showBtn = document.querySelector(".show-btn");
 const loading = document.querySelector(".u-loading");
 const message = document.querySelector(".js-message");
@@ -18,6 +19,7 @@ const colsContainer = document.querySelector(".cols-container");
 const uploadBtnText = document.querySelector(".upload-btn-text");
 const rangeStartInput = document.querySelector(".js-range-start");
 const cardsContainer = document.querySelector(".cards-container");
+const QRCheckbox = document.querySelector(".js-qr-checkbox input");
 const RTLCheckbox = document.querySelector(".js-rtl-checkbox input");
 const customUploadInput = document.querySelector(".custom-upload-btn");
 const configContainer = document.querySelector(".print-config-container");
@@ -108,6 +110,10 @@ function readCSV (csv){
 }
 
 function showCarts (){
+    if(QRCheckbox.checked && !QRData.value){
+        showMessage("Type Your QR Data!");
+        return;
+    }
     let checkedItem = [];
     let allCheckBoxes = document.querySelectorAll(".js-checkbox input:checked");
     allCheckBoxes.forEach(item => checkedItem.push(parseInt(item.value)));
@@ -144,31 +150,56 @@ function createCard(cardData = [], selectedCols = [], headerText, footerText){
     const card = document.createElement("div");
     const footer = document.createElement("p");
     const header = document.createElement("h3");
+    const qrDiv = document.createElement("div");
+    const cardContent = document.createElement("div");
+    const cardRowContainer = document.createElement("div");
     
     footer.innerHTML = footerText;
     header.innerHTML = headerText;
 
     card.classList = "card";
+    qrDiv.classList = "qr-div";
+    cardRowContainer.classList = "card-row-container";
+    cardContent.classList = RTLCheckbox.checked ? "card-content is-rtl" : "card-content";
 
     if(headerText){
         card.appendChild(header);
     }
-    
+    let QRColData = "";
     cardData.forEach((value, index) => {
         const row = document.createElement("div");
+        const label = COLS_TITLE[selectedCols[index]];
         const labelElm = document.createElement("label");
         const valueElm = document.createElement("label");
         row.classList = RTLCheckbox.checked ? "card-row is-rtl" : "card-row";
         labelElm.classList = "card-item-label";
         valueElm.classList = "card-item-value";
-        labelElm.innerHTML = COLS_TITLE[selectedCols[index]] + " : ";
+        labelElm.innerHTML = label + " : ";
         valueElm.innerHTML = value;
         row.appendChild(labelElm);
         row.appendChild(valueElm);
-        card.appendChild(row);
+        cardRowContainer.appendChild(row);
+
+        if(QRData.value === label){
+            QRColData = value;
+        } else {
+            QRColData = QRData.value;
+        }
     });
 
-    
+    cardContent.appendChild(cardRowContainer);
+    if(QRCheckbox.checked){
+        new QRCode(qrDiv, {
+            width: 100,
+            height: 100,
+            text: QRColData,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+        cardContent.appendChild(qrDiv);
+    }
+    card.appendChild(cardContent);
     if(footerText){
         card.appendChild(footer);
     }
@@ -199,19 +230,7 @@ showBtn.addEventListener("click", e => {
 });
 cancelBtn.addEventListener("click", e => {
     e.preventDefault();
-    message.innerHTML = "";
-    footerInput.value = "";
-    headerInput.value = "";
-    selector.innerHTML = "";
-    rangeEndInput.value = 1;
-    selector.disabled = true;
-    rangeStartInput.value = 1;
-    colsContainer.innerHTML = "";
-    cardsContainer.innerHTML = "";
-    message.classList.add("u-hidden");
-    cardsContainer.classList.add("u-hidden");
-    configContainer.classList.add("u-hidden");
-    activeUploadButton(false);
+    window.location.reload();
 });
 printBtn.addEventListener("click", e => {
     e.preventDefault();
@@ -227,6 +246,9 @@ selector.addEventListener("change", e => {
     if(!value) return;
     // TODO
     console.log(value);
+});
+QRCheckbox.addEventListener("change", () => {
+    QRData.classList.toggle("u-hidden");
 });
 
 // CONSOLE

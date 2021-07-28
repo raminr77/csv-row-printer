@@ -334,6 +334,19 @@ form {
     text-align: center;
     border-top: 1px solid #ddd;
 }
+.card-content {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+.card-content.is-rtl {
+    direction: rtl;
+}
+.card-row-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 .card-row {
     display: flex;
     margin-bottom: 8px;
@@ -349,4 +362,14 @@ form {
 .card-item-value {
     font-size: 16px;
     padding: 0 10px;
+}
+.qr-div {
+    height: 100px;
+    overflow: hidden;
+    min-width: 100px;
+    max-width: 100px;
+    max-height: 100px;
+}
+.qr-data {
+    margin-bottom: 22px;
 }

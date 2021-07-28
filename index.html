@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>CSV Row Printer</title>
     <script src="./assets/main.js" defer></script>
+    <script src="./assets/qrcode.min.js" defer></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="./assets/papaparse.min.js" defer></script>
     <link rel="icon" type="images/png" href="./assets/icon.png">
@@ -35,6 +36,8 @@
             <div class="cols-item-form cols-container"></div>
             
             <div class="config-row">
+                <label class="js-qr-checkbox"><input type="checkbox" value="rtl" />QR Code</label>
+                <input class="qr-data u-hidden" type="text" placeholder="Type Your QR Data Or Selected Cols Name ..." />
                 <label class="js-rtl-checkbox"><input type="checkbox" value="rtl" />RTL Card</label>
                 <label class="selector">
                     <div class="config-form-label">Merge Rows With:</div>
