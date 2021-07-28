@@ -13,8 +13,10 @@ const fileInput = document.querySelector(".file-input");
 const selector = document.querySelector(".js-selector");
 const footerInput = document.querySelector(".footer-input");
 const headerInput = document.querySelector(".header-input");
+const rangeEndInput = document.querySelector(".js-range-end");
 const colsContainer = document.querySelector(".cols-container");
 const uploadBtnText = document.querySelector(".upload-btn-text");
+const rangeStartInput = document.querySelector(".js-range-start");
 const cardsContainer = document.querySelector(".cards-container");
 const RTLCheckbox = document.querySelector(".js-rtl-checkbox input");
 const customUploadInput = document.querySelector(".custom-upload-btn");
@@ -96,6 +98,11 @@ function readCSV (csv){
             configContainer.classList.remove("u-hidden");
             toggleLoading();
             createSelectorItem();
+            DATA.pop(); // remove empty row
+            rangeStartInput.value = 1;
+            rangeEndInput.max = DATA.length;
+            rangeStartInput.max = DATA.length;
+            rangeEndInput.value = DATA.length;
         }
     });
 }
@@ -118,7 +125,9 @@ function filterCSVData(selectedCols = []){
     const footerText = footerInput.value;
     const headerText = headerInput.value;
 
-    DATA.forEach(dataItem => {
+    let dataTemp = DATA.slice(parseInt(rangeStartInput.value) - 1, parseInt(rangeEndInput.value));
+
+    dataTemp.forEach(dataItem => {
         let filteredRowData = dataItem.filter(
             (itemCol, itemIndex) => selectedCols.includes(itemIndex)
         );
@@ -194,7 +203,9 @@ cancelBtn.addEventListener("click", e => {
     footerInput.value = "";
     headerInput.value = "";
     selector.innerHTML = "";
+    rangeEndInput.value = 1;
     selector.disabled = true;
+    rangeStartInput.value = 1;
     colsContainer.innerHTML = "";
     cardsContainer.innerHTML = "";
     message.classList.add("u-hidden");

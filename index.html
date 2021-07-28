@@ -9,6 +9,7 @@
     <link rel="icon" type="images/png" href="./assets/icon.png">
     <link rel="stylesheet" type="text/css" href="./assets/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v29.1.0/dist/font-face.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <!-- Upload & Config -->
@@ -36,9 +37,16 @@
             <div class="config-row">
                 <label class="js-rtl-checkbox"><input type="checkbox" value="rtl" />RTL Card</label>
                 <label class="selector">
-                    Merge Rows With:
+                    <div class="config-form-label">Merge Rows With:</div>
                     <select class="js-selector"></select>
                 </label>
+                <div class="range">
+                    <div class="config-form-label">Row Range: </div>
+                    <div class="range-inputs">
+                        <input min="1" class="js-range-start" type="number" placeholder="Start Row" />
+                        <input min="1" class="js-range-end" type="number" placeholder="End Row" />
+                    </div>
+                </div>
             </div>
 
             <div class="input-row">

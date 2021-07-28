@@ -7,7 +7,7 @@
     color: #2C3E50;
     user-select: none;
     box-sizing: border-box;
-    font-family: 'Baloo Chettan 2', cursive;
+    font-family: 'Baloo Chettan 2', 'Vazir', cursive;
 }
 
 body {
@@ -174,13 +174,40 @@ form {
 
 
 /* row and btns */
+.config-form-label {
+    min-width: 140px;
+}
+.range {
+    width: 100%;
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    white-space: nowrap;
+    justify-content: space-between;
+}
+.range-inputs {
+    width: 100%;
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: 1fr 1fr;
+}
+.range-inputs input {
+    width: 100%;
+    border: none;
+    font-size: 14px;
+    padding: 8px 10px;
+    border-bottom: 2px solid #ccc;
+}
+.range-inputs input:focus {
+    border-bottom-color: #1E88E5;
+}
 .selector {
     white-space: nowrap;
 }
 .selector select {
     width: 100%;
     padding: 4px 16px;
-    margin-left: 10px;
+    border: 2px solid #CCC;
 }
 .config-row {
     display: flex;
@@ -196,6 +223,7 @@ form {
 .btn-row {
     width: 100%;
     display: flex;
+    margin-top: 16px;
     align-items: center;
     justify-content: center;
 }
@@ -206,7 +234,7 @@ form {
     font-size: 16px;
     margin-top: 16px;
     margin-left: 8px;
-    padding: 6px 20px;
+    padding: 6px 30px;
     border-radius: 8px;
     transition-duration: 0.3s;
 }
@@ -293,7 +321,18 @@ form {
 .card h3 {
     width: 100%;
     font-size: 22px;
+    text-align: center;
     margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+}
+.card p {
+    color: #ddd;
+    font-size: 14px;
+    margin-top: 8px;
+    padding-top: 8px;
+    text-align: center;
+    border-top: 1px solid #ddd;
 }
 .card-row {
     display: flex;
