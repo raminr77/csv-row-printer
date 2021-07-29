@@ -4,6 +4,7 @@
   "description": "create & print card from CSV row data",
   "main": "./src/index.js",
   "scripts": {
+    "pretty": "npx prettier src/*.js --write",
     "sass": "sass --watch assets/styles/main.scss:assets/styles/main.min.css --style compressed --update"
   },
   "repository": {
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/raminr77/csv-row-printer#readme",
   "devDependencies": {
+    "prettier": "2.3.2",
     "sass": "^1.36.0"
   }
 }

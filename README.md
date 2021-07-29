@@ -31,3 +31,6 @@ Just run `index.html` in your browser.
 
 This project uses [Prettier](https://prettier.io/) formatting and all pull requests must pass
 the automated lint checks prior to merging.
+
+Run the lint fix with:
+`npm run pretty` or `yarn pretty`.
