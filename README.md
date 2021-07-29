@@ -8,7 +8,7 @@ Your CSV file information is never sent to the server. No tracking, analytics, o
 
 [Demo](https://raminrezaei.ir/csv-row-printer/)
 
-### Capabilities:
+## Capabilities:
 <ul>
 <li>Support RTL layout</li>
 <li>Build custom QR Code</li>
@@ -19,3 +19,15 @@ Your CSV file information is never sent to the server. No tracking, analytics, o
 <li>Add header and footer to the cards</li>
 <li>Change the name of the columns or labels</li>
 </ul>
+
+## Running locally
+Just run `index.html` in your browser.
+
+## Development
+1. Make sure you have `yarn` or `npm` installed.
+2. Run `yarn` or `npm install` command.
+3. Run `npm run sass` to compile SCSS files.
+4. Open **index.html**
+
+This project uses [Prettier](https://prettier.io/) formatting and all pull requests must pass
+the automated lint checks prior to merging.
