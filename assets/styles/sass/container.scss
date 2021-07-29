@@ -1,0 +1,39 @@
+.container {
+	width: 100%;
+	display: flex;
+	padding-top: 50px;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	h1 {
+		font-size: 40px;
+		font-weight: bold;
+		margin-bottom: 6px;
+	}
+	img {
+		width: 80px;
+		margin-bottom: 10px;
+	}
+	span {
+		width: 90%;
+		color: #999;
+		font-size: 14px;
+		max-width: 300px;
+		line-height: 20px;
+		text-align: justify;
+		margin-bottom: 10px;
+		margin-bottom: 16px;
+	}
+	strong {
+		margin: 0 2px;
+		font-size: 16px;
+		font-weight: bold;
+	}
+	a {
+		margin: 0 2px;
+		font-size: 14px;
+		color: #1E88E5;
+		font-weight: bold;
+		text-decoration: none;
+	}
+}

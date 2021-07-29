@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    color: #2C3E50;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Baloo Chettan 2', 'Vazir', cursive;
+}
+
+body {
+    position: relative;
+    background-color: #FFF;
+}
+
+/* scroll bar */
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-track {
+    background: #FFF; 
+}
+::-webkit-scrollbar-thumb {
+    background: #d3d3d3;
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+    cursor: pointer;
+    background: #acacac; 
+}

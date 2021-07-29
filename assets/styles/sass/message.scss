@@ -1,0 +1,11 @@
+.js-message {
+  width: 90%;
+  color: #f03;
+  font-size: 16px;
+  max-width: 300px;
+  margin-bottom: 10px;
+  text-align: justify;
+  .is-warning {
+    color: #FF6F00;
+  }
+}

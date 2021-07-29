@@ -1,0 +1,53 @@
+.btn-row {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 16px;
+	align-items: center;
+	justify-content: center;
+}
+.print-btn {
+	border: none;
+	color: #FFF;
+	cursor: pointer;
+	font-size: 16px;
+	margin-top: 16px;
+	margin-left: 8px;
+	padding: 6px 30px;
+	border-radius: 8px;
+	transition-duration: 0.3s;
+	background-color: #66BB6A;
+	&:hover {
+		background-color: #4CAF50;
+	}
+}
+.show-btn {
+	border: none;
+	color: #FFF;
+	cursor: pointer;
+	font-size: 16px;
+	margin-top: 16px;
+	margin-left: 8px;
+	padding: 6px 30px;
+	border-radius: 8px;
+	transition-duration: 0.3s;
+	background-color: #1E88E5;
+	&:hover {
+		background-color: #1565C0;
+	}
+}
+.cancel-btn {
+	border: none;
+	color: #FFF;
+	cursor: pointer;
+	font-size: 16px;
+	margin-top: 16px;
+	margin-left: 8px;
+	padding: 6px 30px;
+	border-radius: 8px;
+	transition-duration: 0.3s;
+	background-color: #E91E63;
+	&:hover {
+		background-color: #D81B60;
+	}
+}

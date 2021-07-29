@@ -1,0 +1,31 @@
+form {
+	width: 90%;
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 300px;
+	align-items: center;
+	justify-content: center;
+}
+.custom-upload-btn {
+	input {
+		display: none;
+	}
+	width: 100%;
+	display: flex;
+	cursor: pointer;
+	font-size: 18px;
+	min-height: 60px;
+	padding: 8px 16px;
+	border-radius: 8px;
+	align-items: center;
+	margin-bottom: 16px;
+	justify-content: center;
+	transition-duration: 0.3s;
+	border: 1px dashed #2C3E50;
+	&:hover {
+		background-color: #ECEFF1;
+	}
+}
+.custom-upload-btn.is-active {
+	background-color: #E8F5E9;
+}

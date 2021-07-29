@@ -1,0 +1,31 @@
+.label-form-container {
+	width: 90%;
+	display: flex;
+	padding: 16px;
+	max-width: 600px;
+	margin: 16px auto;
+	border-radius: 8px;
+	flex-direction: column;
+	background-color: #FFF3E0;
+	border: 1px dashed #2C3E50;
+	p {
+		color: #EF6C00;
+		font-weight: bold;
+		margin-bottom: 16px;
+	}
+}
+.label-edit-row {
+	width: 100%;
+	display: flex;
+	input {
+		width: 100%;
+		border: none;
+		font-size: 14px;
+		padding: 8px 10px;
+		background-color: transparent;
+		border-bottom: 2px solid #CCC;
+		&:focus {
+			border-bottom-color: #EF6C00;
+		}
+	}
+}

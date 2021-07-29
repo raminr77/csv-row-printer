@@ -1,0 +1,71 @@
+.cards-container {
+	width: 90%;
+	margin: 20px auto;
+	max-width: 600px;
+}
+.card {
+	display: flex;
+	padding: 16px;
+	border-radius: 8px;
+	margin-bottom: 16px;
+	flex-direction: column;
+	border: 1px dashed #2C3E50;
+	h3 {
+		width: 100%;
+		font-size: 22px;
+		text-align: center;
+		margin-bottom: 14px;
+		padding-bottom: 8px;
+		border-bottom: 1px solid #ddd;
+	}
+	p {
+		color: #ddd;
+		font-size: 14px;
+		margin-top: 8px;
+		padding-top: 8px;
+		text-align: center;
+		border-top: 1px solid #ddd;
+	}
+}
+.card-content {
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+}
+.card-content.is-rtl {
+	direction: rtl;
+}
+.card-row-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.card-row {
+	display: flex;
+	margin-bottom: 8px;
+	align-items: center;
+}
+.card-row.is-rtl {
+	direction: rtl;
+}
+.card-item-label {
+	font-size: 14px;
+	font-weight: bold;
+	white-space: nowrap;
+}
+.card-item-value {
+	font-size: 16px;
+	padding: 0 10px;
+}
+
+// QR Code 
+.qr-div {
+	height: 100px;
+	overflow: hidden;
+	min-width: 100px;
+	max-width: 100px;
+	max-height: 100px;
+}
+.qr-data {
+	margin-bottom: 22px;
+}
