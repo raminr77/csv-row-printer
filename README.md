@@ -15,6 +15,7 @@ Your CSV file information is never sent to the server. No tracking, analytics, o
 <li>Print selected columns</li>
 <li>Build QR Code from columns</li>
 <li>Change the range of the rows</li>
+<li>Merge rows with custom column</li>
 <li>Add header and footer to the cards</li>
 <li>Change the name of the columns or labels</li>
 </ul>
