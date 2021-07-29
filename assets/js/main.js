@@ -29,6 +29,7 @@ const labelInputsContainer = document.querySelector(".labels-edit-container");
 // local variable
 let DATA = [];
 let COLS_TITLE = [];
+let MERGED_DATA = [];
 
 // functions
 function toggleLoading (){
@@ -145,6 +146,25 @@ function createLabelsInput (label){
     });
 }
 
+function mergeRow (colIndex){
+    const keys = {};
+    const tempData = [];
+    DATA.forEach(item => {
+        if(keys[item[colIndex]]){
+            let tempDataIndex = Object.keys(keys).indexOf(item[colIndex]);
+            item.forEach((col, index) => {
+                if(item[index] !== tempData[tempDataIndex][index]){
+                    tempData[tempDataIndex][index] += `, ${item[index]}`;
+                }
+            });
+        } else {
+            keys[item[colIndex]] = true;
+            tempData.push(item);
+        }
+    });
+    return tempData;
+}
+
 // card functions
 function filterCSVData(selectedCols = []){
     if(selectedCols.length === 0){
@@ -155,8 +175,9 @@ function filterCSVData(selectedCols = []){
     labelInputsContainer.innerHTML = "";
     const footerText = footerInput.value;
     const headerText = headerInput.value;
+    const CSV_DATA = MERGED_DATA.length > 0 ? MERGED_DATA : DATA;
 
-    let dataTemp = DATA.slice(parseInt(rangeStartInput.value) - 1, parseInt(rangeEndInput.value));
+    let dataTemp = CSV_DATA.slice(parseInt(rangeStartInput.value) - 1, parseInt(rangeEndInput.value));
     let labels = [];
     dataTemp.forEach(dataItem => {
         let filteredRowData = dataItem.filter(
@@ -276,9 +297,11 @@ printBtn.addEventListener("click", e => {
 });
 selector.addEventListener("change", e => {
     const value = e.target.value;
-    if(!value) return;
-    // TODO
-    console.log(value);
+    if(!value){
+        MERGED_DATA = [];
+        return;
+    }
+    MERGED_DATA = mergeRow(value);
 });
 QRCheckbox.addEventListener("change", () => {
     QRData.classList.toggle("u-hidden");
