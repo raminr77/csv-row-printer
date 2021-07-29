@@ -4,8 +4,8 @@
   "description": "create & print card from CSV row data",
   "main": "./src/index.js",
   "scripts": {
-    "pretty": "npx prettier src/*.js --write",
-    "sass": "sass --watch assets/styles/main.scss:assets/styles/main.min.css --style compressed --update"
+    "pretty": "npx prettier src/**/*.js --write",
+    "sass": "sass --watch src/assets/styles/main.scss:src/assets/styles/main.min.css --style compressed --update"
   },
   "repository": {
     "type": "git",

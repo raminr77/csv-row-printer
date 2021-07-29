@@ -35,6 +35,14 @@
 .card-content.is-rtl {
 	direction: rtl;
 }
+
+.card-content.is-col {
+	flex-direction: column-reverse;
+	.qr-div {
+		margin-bottom: 16px;
+	}
+}
+
 .card-row-container {
 	width: 100%;
 	display: flex;

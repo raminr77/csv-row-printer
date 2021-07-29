@@ -3,28 +3,32 @@
 <head>
     <meta charset="UTF-8" />
     <title>CSV Row Printer</title>
-    <script src="./src/main.js" defer></script>
+    <script src="./src/shared/data.js" defer></script>
+    <script src="./src/shared/elements.js" defer></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <script src="./assets/libs/qrcode.min.js" defer></script>
-    <script src="./assets/libs/papaparse.min.js" defer></script>
-    <link rel="icon" type="images/png" href="./assets/icon.png" />
-    <!-- <script type="module" src="./src/index.js" defer></script> -->
+    <script src="./src/assets/libs/qrcode.min.js" defer></script>
+    <script type="module" src="./src/index.js" defer></script>
+    <script src="./src/assets/libs/papaparse.min.js" defer></script>
+    <link rel="icon" type="images/png" href="./src/assets/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="./assets/styles/main.min.css" />
+    <link rel="stylesheet" type="text/css" href="./src/assets/styles/main.min.css" />
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v29.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+
     <!-- Main -->
     <div class="container">
-        <img src="./assets/icon.png" alt="CSV Printer" />
+        <img src="./src/assets/icon.png" alt="CSV Printer" />
         <h1>CSV Row Printer</h1>
         <span>
             After uploading your file, select the columns you want and <strong>Print</strong> or <strong>Save PDF</strong> them as organized and designed pages.
             <br/>
             You can viwe the <a href="https://github.com/raminr77/csv-row-printer" target="blank">GitHub</a> page.
         </span>
+        
         <!-- Mesages -->
         <p class="js-message u-hidden"></p>
+        
         <!-- Upload Form -->
         <form>
             <label class="custom-upload-btn">
@@ -32,6 +36,7 @@
                 <input class="file-input" type="file" accept=".csv" />
             </label>
         </form>
+        
         <!-- Settings -->
         <div class="print-config-container u-hidden">
             <p>Select Your Cols</p>
@@ -39,7 +44,9 @@
             <div class="config-row">
                 <label class="js-qr-checkbox"><input type="checkbox" value="rtl" />QR Code</label>
                 <input class="qr-data u-hidden" type="text" placeholder="Type Your QR Data Or Selected Cols Name ..." />
-                <label class="js-rtl-checkbox"><input type="checkbox" value="rtl" />RTL Card</label>
+                <label class="js-rtl-checkbox"><input type="checkbox" />RTL Card</label>
+                <label class="js-col-layout-checkbox"><input type="checkbox" />Columns Layout ( For QR )</label>
+                <br/>
                 <label class="selector">
                     <div class="config-form-label">Merge Rows With:</div>
                     <select class="js-selector"></select>
@@ -49,6 +56,12 @@
                     <div class="range-inputs">
                         <input min="1" class="js-range-start" type="number" placeholder="Start Row" />
                         <input min="1" class="js-range-end" type="number" placeholder="End Row" />
+                    </div>
+                </div>
+                <div class="range">
+                    <div class="config-form-label">Card Width: </div>
+                    <div class="range-inputs">
+                        <input min="200" class="js-card-width" type="number" placeholder="Card Width (px)" value="600" />
                     </div>
                 </div>
             </div>
@@ -66,7 +79,7 @@
 
     <!-- Loading -->
     <div class="u-loading">
-        <img src="./assets/icon.png" alt="CSV Printer" />
+        <img src="./src/assets/icon.png" alt="CSV Printer" />
         <p>Loading ...</p>
     </div>
     
@@ -77,7 +90,7 @@
     </div>
 
     <!-- CARTS -->
-    <div class="cards-container u-hidden"></div>
+    <div class="cards-container"></div>
 
     <!-- FUN CONSOLE -->
     <script>
