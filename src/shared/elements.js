@@ -19,5 +19,5 @@ const RTLCheckbox = document.querySelector(".js-rtl-checkbox input");
 const customUploadInput = document.querySelector(".custom-upload-btn");
 const configContainer = document.querySelector(".print-config-container");
 const labelFormContainer = document.querySelector(".label-form-container");
-const labelItemsContainer = document.querySelector(".label-inputs-container");
+const labelItemsContainer = document.querySelector(".label-form-container__items");
 const QRColLayoutCheckbox = document.querySelector(".js-col-layout-checkbox input");
