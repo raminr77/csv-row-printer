@@ -23,8 +23,8 @@ const QRCheckbox = document.querySelector(".js-qr-checkbox input");
 const RTLCheckbox = document.querySelector(".js-rtl-checkbox input");
 const customUploadInput = document.querySelector(".custom-upload-btn");
 const configContainer = document.querySelector(".print-config-container");
-const labelsEditContainer = document.querySelector(".edit-label-container");
-const labelInputsContainer = document.querySelector(".labels-edit-container");
+const labelFormContainer = document.querySelector(".label-form-container");
+const labelItemsContainer = document.querySelector(".label-inputs-container");
 
 // local variable
 let DATA = [];
@@ -139,7 +139,7 @@ function createLabelsInput (label){
     labelRow.classList = "label-edit-row"
 
     labelRow.appendChild(labelInput);
-    labelInputsContainer.appendChild(labelRow);
+    labelItemsContainer.appendChild(labelRow);
 
     labelInput.addEventListener("keyup", e => {
         changeLabel(label, e.target.value);
@@ -172,7 +172,7 @@ function filterCSVData(selectedCols = []){
         return;
     }
     cardsContainer.innerHTML = "";
-    labelInputsContainer.innerHTML = "";
+    labelItemsContainer.innerHTML = "";
     const footerText = footerInput.value;
     const headerText = headerInput.value;
     const CSV_DATA = MERGED_DATA.length > 0 ? MERGED_DATA : DATA;
@@ -193,7 +193,7 @@ function filterCSVData(selectedCols = []){
     labels.forEach((value, index) => {
         createLabelsInput(COLS_TITLE[selectedCols[index]]);
     });
-    labelsEditContainer.classList.remove("u-hidden");
+    labelFormContainer.classList.remove("u-hidden");
     cardsContainer.scrollIntoView();
 }
 
@@ -266,9 +266,9 @@ fileInput.addEventListener("change", e => {
     selector.innerHTML = "";
     selector.disabled = true;
     message.classList.add("u-hidden");
-    labelInputsContainer.innerHTML = "";
+    labelItemsContainer.innerHTML = "";
     configContainer.classList.add("u-hidden");
-    labelsEditContainer.classList.add("u-hidden");
+    labelFormContainer.classList.add("u-hidden");
     const file = e.target.files[0];
     if(!file){
         activeUploadButton(false);
@@ -306,7 +306,3 @@ selector.addEventListener("change", e => {
 QRCheckbox.addEventListener("change", () => {
     QRData.classList.toggle("u-hidden");
 });
-
-// CONSOLE
-console.log("%cMade & Designed By Ramin Rezaei", "font-size: 14px; line-height: 80px");
-console.log("%chttps://raminrezaei.ir", "font-size: 14px; line-height: 30px;");

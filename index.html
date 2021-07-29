@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <title>CSV Row Printer</title>
-    <script src="./assets/js/main.js" defer></script>
+    <script src="./src/main.js" defer></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script src="./assets/libs/qrcode.min.js" defer></script>
     <script src="./assets/libs/papaparse.min.js" defer></script>
     <link rel="icon" type="images/png" href="./assets/icon.png" />
+    <!-- <script type="module" src="./src/index.js" defer></script> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="./assets/styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/styles/main.min.css" />
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v29.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -69,11 +70,19 @@
         <p>Loading ...</p>
     </div>
     
-    <!-- CARTS -->
-    <div class="edit-label-container u-hidden">
+    <!-- LABEL Form -->
+    <div class="label-form-container u-hidden">
         <p>Change Your Labels Text:</p>
-        <div class="labels-edit-container"></div>
+        <div class="label-inputs-container"></div>
     </div>
-    <div id="cards-container" class="cards-container"></div>
+
+    <!-- CARTS -->
+    <div class="cards-container u-hidden"></div>
+
+    <!-- FUN CONSOLE -->
+    <script>
+        console.log("%cMade & Designed By Ramin Rezaei", "font-size: 14px; line-height: 80px");
+        console.log("%chttps://raminrezaei.ir", "font-size: 14px; line-height: 30px;");
+    </script>
 </body>
 </html>
