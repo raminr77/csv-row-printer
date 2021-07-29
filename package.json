@@ -1,0 +1,25 @@
+{
+  "name": "csv-row-printer",
+  "version": "1.0.0",
+  "description": "create & print card from CSV row data",
+  "main": "./src/index.js",
+  "scripts": {
+    "sass": "sass --watch assets/styles/main.scss:assets/styles/main.min.css --style compressed --update"  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raminr77/csv-row-printer.git"
+  },
+  "keywords": [
+    "CSV",
+    "CSV",
+    "row",
+    "printer"
+  ],
+  "author": "Ramin Rezaei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raminr77/csv-row-printer/issues"
+  },
+  "homepage": "https://github.com/raminr77/csv-row-printer#readme"
+}
