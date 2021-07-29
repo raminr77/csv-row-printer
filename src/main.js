@@ -1,8 +1,3 @@
-// static texts
-const UPLOAD_BTN_TEXTS = {
-  false: "Select Your CSV File",
-  true: "Selected Your File",
-};
 // elements
 const QRData = document.querySelector(".qr-data");
 const showBtn = document.querySelector(".show-btn");
@@ -74,6 +69,10 @@ function showMessage(text, isWarning = false) {
 }
 
 function activeUploadButton(isActive = true) {
+  const UPLOAD_BTN_TEXTS = {
+    false: "Select Your CSV File",
+    true: "Selected Your File",
+  };
   if (isActive) {
     customUploadInput.classList.add("is-active");
   } else {
