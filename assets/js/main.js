@@ -124,7 +124,6 @@ function showCarts (){
 }
 
 function changeLabel (labelId, newLabel){
-    console.log(labelId);
     const labels = document.querySelectorAll(`[data-label-id='${labelId}']`);
     labels.forEach(label => {
         label.innerHTML = `${newLabel} : `;

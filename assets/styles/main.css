@@ -311,6 +311,7 @@ form {
 .card-item-label {
     font-size: 14px;
     font-weight: bold;
+    white-space: nowrap;
 }
 .card-item-value {
     font-size: 16px;
@@ -336,10 +337,11 @@ form {
     margin: 16px auto;
     border-radius: 8px;
     flex-direction: column;
-    background-color: #f0f0f0;
+    background-color: #FFF3E0;
     border: 1px dashed #2C3E50;
 }
 .edit-label-container p {
+    color: #EF6C00;
     font-weight: bold;
     margin-bottom: 16px;
 }
@@ -356,7 +358,7 @@ form {
     border-bottom: 2px solid #CCC;
 }
 .label-edit-row input:focus {
-    border-bottom-color: #1E88E5;
+    border-bottom-color: #EF6C00;
 }
 
 /* utils */
