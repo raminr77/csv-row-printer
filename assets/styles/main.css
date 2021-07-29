@@ -223,6 +223,7 @@ form {
 .btn-row {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     margin-top: 16px;
     align-items: center;
     justify-content: center;
