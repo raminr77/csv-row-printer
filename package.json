@@ -7,6 +7,11 @@
     "pretty": "npx prettier src/**/*.js --write",
     "sass": "sass --watch src/assets/styles/main.scss:src/assets/styles/main.min.css --style compressed --update"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/raminr77/csv-row-printer.git"
@@ -24,6 +29,7 @@
   },
   "homepage": "https://github.com/raminr77/csv-row-printer#readme",
   "devDependencies": {
+    "husky": "^7.0.1",
     "prettier": "2.3.2",
     "sass": "^1.36.0"
   }
