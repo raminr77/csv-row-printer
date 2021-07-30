@@ -1,7 +1,7 @@
 import { readCSV } from "./functions/csv.js";
 import { showCards } from "./functions/card.js";
 import { mergeRow } from "./functions/configForm.js";
-import { activeUploadButton, debounce, showMessage } from "./functions/utils.js";
+import { activeUploadButton, debounce, searchInCards, showMessage } from "./functions/utils.js";
 
 // Events
 fileInput.addEventListener("change", (e) => {
@@ -56,6 +56,10 @@ QRCheckbox.addEventListener("change", () => {
   QRData.classList.toggle("u-hidden");
 });
 
+advancedSettingsCheckbox.addEventListener("change", () => {
+  advancedSettingsContainer.classList.toggle("u-hidden");
+});
+
 cardWidthInput.addEventListener(
   "keyup",
   debounce((e) => {
@@ -66,5 +70,25 @@ cardWidthInput.addEventListener(
       return;
     }
     cardsContainer.style.maxWidth = cardMaxWidth;
+  }, 500),
+);
+
+cardMinHeightInput.addEventListener(
+  "keyup",
+  debounce((e) => {
+    const value = e.target.value;
+    const cardMinHeight = `${value}px`;
+    if (value < 110 || value > window.innerHeight) {
+      showMessage("Your width is invalid!");
+      return;
+    }
+    document.querySelectorAll(".card").forEach(card => card.style.minHeight = cardMinHeight);
+  }, 500),
+);
+
+searchInput.addEventListener(
+  "keyup",
+  debounce((e) => {
+    searchInCards(e.target.value);
   }, 500),
 );

@@ -41,16 +41,33 @@
         <div class="print-config-container u-hidden">
             <p>Select Your Cols</p>
             <div class="cols-item-form cols-container"></div>
-            <div class="config-row">
-                <label class="js-qr-checkbox"><input type="checkbox" value="rtl" />QR Code</label>
+            <br/>
+            <label class="js-advanced-settings-checkbox"><input type="checkbox" />Advanced Settings</label>
+            <div class="config-row js-advanced-settings-ccontainer u-hidden">
+                <p>Advanced Settings</p>
+                <label class="js-qr-checkbox"><input type="checkbox" />QR Code</label>
                 <input class="qr-data u-hidden" type="text" placeholder="Type Your QR Data Or Selected Cols Name ..." />
                 <label class="js-rtl-checkbox"><input type="checkbox" />RTL Card</label>
                 <label class="js-col-layout-checkbox"><input type="checkbox" />Columns Layout ( For QR )</label>
-                <br/>
-                <label class="selector">
+                
+                <div class="range">
+                    <div class="config-form-label">Card Width: </div>
+                    <div class="range-inputs">
+                        <input min="200" class="js-card-width" type="number" placeholder="Card Width (px)" value="600" />
+                    </div>
+                </div>
+                <div class="range">
+                    <div class="config-form-label">Card Min Height: </div>
+                    <div class="range-inputs">
+                        <input min="110" class="js-card-height" type="number" placeholder="Card Min Height (px)" />
+                    </div>
+                </div>
+
+                <label class="selector" style="margin-top: 20px;">
                     <div class="config-form-label">Merge Rows With:</div>
                     <select class="js-selector"></select>
                 </label>
+                
                 <div class="range">
                     <div class="config-form-label">Row Range: </div>
                     <div class="range-inputs">
@@ -58,16 +75,11 @@
                         <input min="1" class="js-range-end" type="number" placeholder="End Row" />
                     </div>
                 </div>
-                <div class="range">
-                    <div class="config-form-label">Card Width: </div>
-                    <div class="range-inputs">
-                        <input min="200" class="js-card-width" type="number" placeholder="Card Width (px)" value="600" />
-                    </div>
+                
+                <div class="input-row">
+                    <input class="header-input" maxlength="40" type="text" placeholder="Type Your Header Text ..." />
+                    <input class="footer-input" maxlength="40" type="text" placeholder="Type Your Footer Text ..." />
                 </div>
-            </div>
-            <div class="input-row">
-                <input class="header-input" maxlength="40" type="text" placeholder="Type Your Header Text ..." />
-                <input class="footer-input" maxlength="40" type="text" placeholder="Type Your Footer Text ..." />
             </div>
             <div class="btn-row">
                 <button class="cancel-btn" type="button">Cancel</button>
@@ -85,6 +97,11 @@
     
     <!-- LABEL Form -->
     <div class="label-form-container u-hidden">
+        <p>Search Your Text:</p>
+        <div class="label-edit-row">
+            <input class="search-input" maxlength="40" type="text" placeholder="Search ..." />
+        </div>
+        <br/>
         <p>Change Your Labels Text:</p>
         <div class="label-form-container__items"></div>
     </div>
