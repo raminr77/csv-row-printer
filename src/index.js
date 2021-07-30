@@ -36,7 +36,11 @@ cancelBtn.addEventListener("click", (e) => {
 
 printBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  window.print();
+  if(document.querySelectorAll(".card").length > 0){
+    window.print();
+  } else {
+    showMessage("First Click On the Show Button.");
+  }
 });
 
 selector.addEventListener("change", (e) => {
