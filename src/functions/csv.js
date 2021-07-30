@@ -64,5 +64,5 @@ export function filterCSVData(selectedCols = []) {
   });
   labelFormContainer.classList.remove("u-hidden");
   resultCount.innerHTML = dataTemp.length;
-  labelFormContainer.scrollIntoView({behavior: "smooth"});
+  labelFormContainer.scrollIntoView({ behavior: "smooth" });
 }
