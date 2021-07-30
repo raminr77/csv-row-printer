@@ -10,21 +10,20 @@ Your CSV file information is never sent to the server. No tracking, analytics, o
 
 ## Capabilities:
 <ul>
-<li>Support RTL layout</li>
-<li>Build custom QR Code</li>
-<li>Print selected columns</li>
-<li>Build QR Code from columns</li>
-<li>Change the range of the rows</li>
-<li>Merge rows with custom column</li>
-<li>Add header and footer to the cards</li>
-<li>Change the name of the columns or labels</li>
+  <li>Search in cards</li>
+  <li>Support RTL layout</li>
+  <li>Build custom QR Code</li>
+  <li>Print selected columns</li>
+  <li>Build QR Code from column</li>
+  <li>Change the range of the rows</li>
+  <li>Add header and footer to the cards</li>
+  <li>Merge (Group By) rows with custom column</li>
+  <li>Change the name of the columns or labels</li>
+  <li>Change the width and height of the cards</li>
 </ul>
-
-## Running locally
-Just run `index.html` in your browser.
 
 ## Development
 1. Make sure you have `yarn` installed.
 2. Run `yarn` for install **devDependencies** command.
 3. Run `yarn sass` to compile SCSS files.
-4. Open **index.html**
+4. Run **index.html** with the [live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
