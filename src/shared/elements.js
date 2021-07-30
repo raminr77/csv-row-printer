@@ -23,6 +23,9 @@ const configContainer = document.querySelector(".print-config-container");
 const labelFormContainer = document.querySelector(".label-form-container");
 const labelItemsContainer = document.querySelector(".label-form-container__items");
 const QRColLayoutCheckbox = document.querySelector(".js-col-layout-checkbox input");
-const advancedSettingsContainer = document.querySelector(".js-advanced-settings-ccontainer");
-const advancedSettingsCheckbox = document.querySelector(".js-advanced-settings-checkbox input");
-
+const advancedSettingsContainer = document.querySelector(
+  ".js-advanced-settings-ccontainer",
+);
+const advancedSettingsCheckbox = document.querySelector(
+  ".js-advanced-settings-checkbox input",
+);

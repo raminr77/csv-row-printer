@@ -49,11 +49,12 @@ export function debounce(func, wait, immediate) {
   };
 }
 
-export function searchInCards(searchValue = ""){
-  document.querySelectorAll(".card").forEach(card => {
-    let filteredCards = Array.from(card.querySelectorAll(".card-item-value"))
-                          .filter(value => value.innerHTML.match(searchValue));
-    if(filteredCards.length > 0){
+export function searchInCards(searchValue = "") {
+  document.querySelectorAll(".card").forEach((card) => {
+    let filteredCards = Array.from(card.querySelectorAll(".card-item-value")).filter(
+      (value) => value.innerHTML.match(searchValue),
+    );
+    if (filteredCards.length > 0) {
       card.classList.remove("u-hidden");
     } else {
       card.classList.add("u-hidden");
