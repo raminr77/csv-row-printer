@@ -10,7 +10,6 @@ export function showCards() {
   let allCheckBoxes = document.querySelectorAll(".js-checkbox input:checked");
   allCheckBoxes.forEach((item) => checkedItem.push(parseInt(item.value)));
   filterCSVData(checkedItem);
-  return checkedItem.length > 0;
 }
 
 export function createCard(cardData = [], selectedCols = [], headerText, footerText) {
