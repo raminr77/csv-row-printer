@@ -24,13 +24,7 @@ Your CSV file information is never sent to the server. No tracking, analytics, o
 Just run `index.html` in your browser.
 
 ## Development
-1. Make sure you have `yarn` or `npm` installed.
-2. Run `yarn` or `npm install` command.
-3. Run `npm run sass` to compile SCSS files.
+1. Make sure you have `yarn` installed.
+2. Run `yarn` for install **devDependencies** command.
+3. Run `yarn sass` to compile SCSS files.
 4. Open **index.html**
-
-This project uses [Prettier](https://prettier.io/) formatting and all pull requests must pass
-the automated lint checks prior to merging.
-
-Run the lint fix with:
-`npm run pretty` or `yarn pretty`.

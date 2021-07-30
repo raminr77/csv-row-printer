@@ -1,7 +1,7 @@
 {
   "name": "csv-row-printer",
   "version": "1.0.0",
-  "description": "create & print card from CSV row data",
+  "description": "Create & Print Card from CSV Row Data",
   "main": "./src/index.js",
   "scripts": {
     "husky": "husky install",
@@ -10,8 +10,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "src/**/*.{js,scss}": [
+      "prettier --write"
+    ]
   },
   "repository": {
     "type": "git",
