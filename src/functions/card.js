@@ -7,6 +7,7 @@ export function showCards() {
     return;
   }
   let checkedItem = [];
+  searchInput.value = "";
   let allCheckBoxes = document.querySelectorAll(".js-checkbox input:checked");
   allCheckBoxes.forEach((item) => checkedItem.push(parseInt(item.value)));
   filterCSVData(checkedItem);

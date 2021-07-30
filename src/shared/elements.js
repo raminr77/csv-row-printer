@@ -10,6 +10,7 @@ const searchInput = document.querySelector(".search-input");
 const footerInput = document.querySelector(".footer-input");
 const headerInput = document.querySelector(".header-input");
 const rangeEndInput = document.querySelector(".js-range-end");
+const resultCount = document.querySelector(".js-result-count");
 const colsContainer = document.querySelector(".cols-container");
 const cardWidthInput = document.querySelector(".js-card-width");
 const uploadBtnText = document.querySelector(".upload-btn-text");

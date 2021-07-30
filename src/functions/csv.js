@@ -63,5 +63,6 @@ export function filterCSVData(selectedCols = []) {
     createLabelsInput(COLS_TITLE[selectedCols[index]]);
   });
   labelFormContainer.classList.remove("u-hidden");
-  cardsContainer.scrollIntoView();
+  resultCount.innerHTML = dataTemp.length;
+  labelFormContainer.scrollIntoView({behavior: "smooth"});
 }

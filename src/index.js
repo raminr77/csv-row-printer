@@ -1,15 +1,18 @@
 import { readCSV } from "./functions/csv.js";
 import { showCards } from "./functions/card.js";
 import { mergeRow } from "./functions/configForm.js";
-import { activeUploadButton, debounce, searchInCards, showMessage } from "./functions/utils.js";
+import { activeUploadButton, debounce, resetAllCheckboxes, searchInCards, showMessage } from "./functions/utils.js";
 
 // Events
 fileInput.addEventListener("change", (e) => {
   DATA = [];
   COLS_TITLE = [];
   e.preventDefault();
+  resetAllCheckboxes();
+  searchInput.value = "";
   selector.innerHTML = "";
   selector.disabled = true;
+  cardsContainer.innerHTML = "";
   message.classList.add("u-hidden");
   labelItemsContainer.innerHTML = "";
   configContainer.classList.add("u-hidden");

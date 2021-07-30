@@ -61,3 +61,11 @@ export function searchInCards(searchValue = "") {
     }
   });
 }
+
+export function resetAllCheckboxes (){
+  const allCheckboxes = document.querySelectorAll('input[type=checkbox]:checked');
+  if(allCheckboxes.length === 0) return;
+  allCheckboxes.forEach(checkbox => {
+      checkbox.checked = false;
+  });
+}
