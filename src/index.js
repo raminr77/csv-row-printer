@@ -36,12 +36,7 @@ cancelBtn.addEventListener("click", (e) => {
 
 printBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  const result = showCards();
-  if (result) {
-    window.print();
-  } else {
-    window.alert("Error");
-  }
+  window.print();
 });
 
 selector.addEventListener("change", (e) => {
