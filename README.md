@@ -1,3 +1,5 @@
+<img src="./src/assets/icon.png" width="60" style="margin-bottom:10px" />
+
 # CSV Row Printer
 <p>
 CSV Row Printer is a tool that helps you upload your CSV files to it and separate the information in each row and print it as a card or output it.
