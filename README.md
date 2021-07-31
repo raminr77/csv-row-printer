@@ -1,6 +1,9 @@
 <img src="./src/assets/icon.png" width="60" style="margin-bottom:10px" />
 
 # CSV Row Printer
+
+[![GitHub stars](https://img.shields.io/github/stars/raminr77/csv-row-printer?style=social)](https://github.com/raminr77/csv-row-printer/)
+
 <p>
 CSV Row Printer is a tool that helps you upload your CSV files to it and separate the information in each row and print it as a card or output it.
 </p>
