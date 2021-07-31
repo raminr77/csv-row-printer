@@ -1,8 +1,10 @@
 {
   "name": "csv-row-printer",
+  "license": "ISC",
   "version": "1.0.0",
-  "description": "Create & Print Card from CSV Row Data",
   "main": "./src/index.js",
+  "author": "Ramin Rezaei - ramin.rezaei77@gmail.com",
+  "description": "Create & Print Card from CSV Row Data",
   "scripts": {
     "husky": "husky install",
     "pretty": "npx prettier src/**/*.js --write",
@@ -28,8 +30,6 @@
     "row",
     "printer"
   ],
-  "author": "Ramin Rezaei",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/raminr77/csv-row-printer/issues"
   },
