@@ -1,4 +1,4 @@
-import { changeLabel, debounce } from "./utils.js";
+import { changeLabel, debounce, toggleLoading } from "./utils.js";
 
 export function createSelectorItem() {
   const noneOption = document.createElement("option");
@@ -60,5 +60,7 @@ export function mergeRow(colIndex) {
       tempData.push(item);
     }
   });
+  rangeStartInput.value = 1;
+  rangeEndInput.value = tempData.length;
   return tempData;
 }

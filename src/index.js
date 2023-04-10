@@ -1,7 +1,7 @@
 import { readCSV } from "./functions/csv.js";
 import { showCards } from "./functions/card.js";
 import { mergeRow } from "./functions/configForm.js";
-import { activeUploadButton, debounce, resetAllCheckboxes, searchInCards, showMessage } from "./functions/utils.js";
+import { activeUploadButton, debounce, resetAllCheckboxes, searchInCards, showMessage, toggleLoading } from "./functions/utils.js";
 
 // Events
 fileInput.addEventListener("change", (e) => {
