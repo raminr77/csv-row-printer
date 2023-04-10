@@ -51,3 +51,21 @@
 		background-color: #D81B60;
 	}
 }
+
+.top-btn {
+    right: 30px;
+	bottom: 30px;
+	position: fixed;
+    cursor: pointer;
+    line-height: 30px;
+    padding: 8px 16px;
+    border-radius: 8px;
+	background: #fff;
+    text-decoration: none;
+	border: 1px dashed #eee;
+    transition-duration: 300ms;
+	&:hover {
+		border-color: #ddd;
+		background: rgba(238, 238, 238, 0.5);
+	}
+}
