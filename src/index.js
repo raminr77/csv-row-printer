@@ -1,7 +1,13 @@
 import { readCSV } from "./functions/csv.js";
 import { showCards } from "./functions/card.js";
 import { mergeRow } from "./functions/configForm.js";
-import { activeUploadButton, debounce, resetAllCheckboxes, searchInCards, showMessage, toggleLoading } from "./functions/utils.js";
+import {
+  activeUploadButton,
+  resetAllCheckboxes,
+  searchInCards,
+  showMessage,
+  debounce,
+} from "./functions/utils.js";
 
 // Events
 fileInput.addEventListener("change", (e) => {
@@ -39,7 +45,7 @@ cancelBtn.addEventListener("click", (e) => {
 
 printBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  if(document.querySelectorAll(".card").length > 0){
+  if (document.querySelectorAll(".card").length > 0) {
     window.print();
   } else {
     showMessage("First Click On the Show Button.");
@@ -85,7 +91,9 @@ cardMinHeightInput.addEventListener(
       showMessage("Your width is invalid!");
       return;
     }
-    document.querySelectorAll(".card").forEach(card => card.style.minHeight = cardMinHeight);
+    document
+      .querySelectorAll(".card")
+      .forEach((card) => (card.style.minHeight = cardMinHeight));
   }, 500),
 );
 

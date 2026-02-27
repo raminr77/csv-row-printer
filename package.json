@@ -1,13 +1,13 @@
 {
   "name": "csv-row-printer",
   "license": "ISC",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "main": "./src/index.js",
   "author": "Ramin Rezaei - ramin.rezaei77@gmail.com",
   "description": "Create & Print Card from CSV Row Data",
   "scripts": {
     "husky": "husky install",
-    "pretty": "npx prettier src/**/*.js --write",
+    "format": "npx prettier src/**/*.js --write",
     "sass": "sass --watch src/assets/styles/main.scss:src/assets/styles/main.min.css --style compressed --update"
   },
   "husky": {
@@ -35,8 +35,9 @@
   },
   "homepage": "https://github.com/raminr77/csv-row-printer#readme",
   "devDependencies": {
-    "husky": "^7.0.1",
-    "prettier": "2.3.2",
-    "sass": "^1.36.0"
-  }
+    "husky": "^9.1.7",
+    "prettier": "3.8.1",
+    "sass": "^1.97.3"
+  },
+  "packageManager": "pnpm@10.30.3"
 }

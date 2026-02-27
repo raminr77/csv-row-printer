@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>CSV Row Printer</title>
     <script src="./src/shared/data.js" defer></script>
@@ -12,92 +12,148 @@
     <link rel="icon" type="images/png" href="./src/assets/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./src/assets/styles/main.min.css" />
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v29.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-
+    <link
+      href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v29.1.0/dist/font-face.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-56GJQXDJ");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body>
     <!-- Main -->
     <div class="container">
-        <img id="top" src="./src/assets/icon.png" alt="CSV Printer" />
-        <h1>CSV Row Printer</h1>
-        <span>
-            After uploading your file, select the columns you want and <strong>Print</strong> or <strong>Save PDF</strong> them as organized and designed pages.
-            <br/>
-            You can viwe the <a href="https://github.com/raminr77/csv-row-printer" target="blank">GitHub</a> page.
-        </span>
-        
-        <!-- Mesages -->
-        <p class="js-message u-hidden"></p>
-        
-        <!-- Upload Form -->
-        <form>
-            <label class="custom-upload-btn">
-                <div class="upload-btn-text">Select Your CSV File</div>
-                <input class="file-input" type="file" accept=".csv" />
-            </label>
-        </form>
-        
-        <!-- Settings -->
-        <div class="print-config-container u-hidden">
-            <p>Select Your Cols</p>
-            <div class="cols-item-form cols-container"></div>
-            <br/>
-            <label class="js-advanced-settings-checkbox"><input type="checkbox" />Advanced Settings</label>
-            <div class="config-row js-advanced-settings-ccontainer u-hidden">
-                <p>Advanced Settings</p>
-                <label class="js-qr-checkbox"><input type="checkbox" />QR Code</label>
-                <input class="qr-data u-hidden" type="text" placeholder="Type Your QR Data Or Selected Cols Name ..." />
-                <label class="js-rtl-checkbox"><input type="checkbox" />RTL Card</label>
-                <label class="js-col-layout-checkbox"><input type="checkbox" />Columns Layout ( For QR )</label>
-                
-                <div class="range">
-                    <div class="config-form-label">Card Width: </div>
-                    <div class="range-inputs">
-                        <input min="200" class="js-card-width" type="number" placeholder="Card Width (px)" value="600" />
-                    </div>
-                </div>
-                <div class="range">
-                    <div class="config-form-label">Card Min Height: </div>
-                    <div class="range-inputs">
-                        <input value="110" min="110" class="js-card-height" type="number" placeholder="Card Min Height (px)" />
-                    </div>
-                </div>
+      <img id="top" src="./src/assets/icon.png" alt="CSV Printer" />
+      <h1>CSV Row Printer</h1>
+      <span>
+        After uploading your file, select the columns you want and
+        <strong>Print</strong> or <strong>Save PDF</strong> them as organized and designed
+        pages.
+        <br />
+        You can viwe the
+        <a href="https://github.com/raminr77/csv-row-printer" target="blank">GitHub</a>
+        page.
+      </span>
 
-                <label class="selector" style="margin-top: 20px;">
-                    <div class="config-form-label">Merge Rows With:</div>
-                    <select class="js-selector"></select>
-                </label>
-                
-                <div class="range">
-                    <div class="config-form-label">Row Range: </div>
-                    <div class="range-inputs">
-                        <input min="1" class="js-range-start" type="number" placeholder="Start Row" />
-                        <input min="1" class="js-range-end" type="number" placeholder="End Row" />
-                    </div>
-                </div>
-                
-                <div class="input-row">
-                    <input class="header-input" maxlength="40" type="text" placeholder="Type Your Header Text ..." />
-                    <input class="footer-input" maxlength="40" type="text" placeholder="Type Your Footer Text ..." />
-                </div>
+      <!-- Mesages -->
+      <p class="js-message u-hidden"></p>
+
+      <!-- Upload Form -->
+      <form>
+        <label class="custom-upload-btn">
+          <div class="upload-btn-text">Select Your CSV File</div>
+          <input class="file-input" type="file" accept=".csv" />
+        </label>
+      </form>
+
+      <!-- Settings -->
+      <div class="print-config-container u-hidden">
+        <p>Select Your Cols</p>
+        <div class="cols-item-form cols-container"></div>
+        <br />
+        <label class="js-advanced-settings-checkbox"
+          ><input type="checkbox" />Advanced Settings</label
+        >
+        <div class="config-row js-advanced-settings-ccontainer u-hidden">
+          <p>Advanced Settings</p>
+          <label class="js-qr-checkbox"><input type="checkbox" />QR Code</label>
+          <input
+            class="qr-data u-hidden"
+            type="text"
+            placeholder="Type Your QR Data Or Selected Cols Name ..."
+          />
+          <label class="js-rtl-checkbox"><input type="checkbox" />RTL Card</label>
+          <label class="js-col-layout-checkbox"
+            ><input type="checkbox" />Columns Layout ( For QR )</label
+          >
+
+          <div class="range">
+            <div class="config-form-label">Card Width:</div>
+            <div class="range-inputs">
+              <input
+                min="200"
+                class="js-card-width"
+                type="number"
+                placeholder="Card Width (px)"
+                value="600"
+              />
             </div>
-            <div class="btn-row">
-                <button class="cancel-btn" type="button">Cancel</button>
-                <button class="show-btn" type="button">Show</button>
-                <button class="print-btn" type="button">Print</button>
+          </div>
+          <div class="range">
+            <div class="config-form-label">Card Min Height:</div>
+            <div class="range-inputs">
+              <input
+                value="110"
+                min="110"
+                class="js-card-height"
+                type="number"
+                placeholder="Card Min Height (px)"
+              />
             </div>
+          </div>
+
+          <label class="selector" style="margin-top: 20px">
+            <div class="config-form-label">Merge Rows With:</div>
+            <select class="js-selector"></select>
+          </label>
+
+          <div class="range">
+            <div class="config-form-label">Row Range:</div>
+            <div class="range-inputs">
+              <input
+                min="1"
+                class="js-range-start"
+                type="number"
+                placeholder="Start Row"
+              />
+              <input min="1" class="js-range-end" type="number" placeholder="End Row" />
+            </div>
+          </div>
+
+          <div class="input-row">
+            <input
+              class="header-input"
+              maxlength="40"
+              type="text"
+              placeholder="Type Your Header Text ..."
+            />
+            <input
+              class="footer-input"
+              maxlength="40"
+              type="text"
+              placeholder="Type Your Footer Text ..."
+            />
+          </div>
         </div>
+        <div class="btn-row">
+          <button class="cancel-btn" type="button">Cancel</button>
+          <button class="show-btn" type="button">Show</button>
+          <button class="print-btn" type="button">Print</button>
+        </div>
+      </div>
     </div>
-    
+
     <!-- LABEL Form -->
     <div class="label-form-container u-hidden">
-        <p>Search Your Text (<span class="js-result-count"></span> Rows ):</p>
-        <div class="label-edit-row">
-            <input class="search-input" maxlength="40" type="text" placeholder="Search ..." />
-        </div>
-        <br/>
-        <p>Change Your Labels Text:</p>
-        <div class="label-form-container__items"></div>
+      <p>Search Your Text (<span class="js-result-count"></span> Rows ):</p>
+      <div class="label-edit-row">
+        <input class="search-input" maxlength="40" type="text" placeholder="Search ..." />
+      </div>
+      <br />
+      <p>Change Your Labels Text:</p>
+      <div class="label-form-container__items"></div>
     </div>
 
     <!-- CARTS -->
@@ -105,16 +161,29 @@
 
     <!-- Loading -->
     <div class="u-loading">
-        <img src="./src/assets/icon.png" alt="CSV Printer" />
-        <p>Loading ...</p>
+      <img src="./src/assets/icon.png" alt="CSV Printer" />
+      <p>Loading ...</p>
     </div>
 
     <a href="#top" class="top-btn">TOP</a>
 
     <!-- FUN CONSOLE -->
     <script>
-        console.log("%cMade & Designed By Ramin Rezaei", "font-size: 14px; line-height: 80px");
-        console.log("%chttps://raminrezaei.ir", "font-size: 14px; line-height: 30px;");
+      console.log(
+        "%cMade & Designed By Ramin Rezaei",
+        "font-size: 14px; line-height: 80px",
+      );
+      console.log("%chttps://raminrezaei.se", "font-size: 14px; line-height: 30px;");
     </script>
-</body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        width="0"
+        height="0"
+        style="display: none; visibility: hidden"
+        src="https://www.googletagmanager.com/ns.html?id=GTM-56GJQXDJ"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  </body>
 </html>
