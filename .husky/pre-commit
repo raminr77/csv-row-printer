@@ -1,6 +1,5 @@
-npm run format ||
-    (
-       echo '❌ Formatting failed, aborting commit';
-       false;
-    )
-
+pnpm exec lint-staged ||
+  (
+    echo '❌ Formatting failed, aborting commit'
+    false
+  )

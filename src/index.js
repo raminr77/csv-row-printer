@@ -1,18 +1,26 @@
 import { readCSV } from "./functions/csv.js";
 import { showCards } from "./functions/card.js";
-import { mergeRow } from "./functions/configForm.js";
+import { mergeRow, createThemeOptions } from "./functions/configForm.js";
 import {
   activeUploadButton,
+  applyTheme,
   resetAllCheckboxes,
   searchInCards,
   showMessage,
+  withLoading,
   debounce,
 } from "./functions/utils.js";
+import { isValidWidth, isValidHeight, DEFAULT_THEME } from "./core/core.js";
+
+// Populate the card theme dropdown once on load.
+createThemeOptions();
+THEME = DEFAULT_THEME;
 
 // Events
 fileInput.addEventListener("change", (e) => {
   DATA = [];
   COLS_TITLE = [];
+  MERGED_DATA = [];
   e.preventDefault();
   resetAllCheckboxes();
   searchInput.value = "";
@@ -26,7 +34,7 @@ fileInput.addEventListener("change", (e) => {
   const file = e.target.files[0];
   if (!file) {
     activeUploadButton(false);
-    showMessage("First Select Your CSV File.");
+    showMessage("Please select a CSV file first.");
     return;
   }
   activeUploadButton(true);
@@ -35,7 +43,7 @@ fileInput.addEventListener("change", (e) => {
 
 showBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  showCards();
+  withLoading(() => showCards());
 });
 
 cancelBtn.addEventListener("click", (e) => {
@@ -48,7 +56,7 @@ printBtn.addEventListener("click", (e) => {
   if (document.querySelectorAll(".card").length > 0) {
     window.print();
   } else {
-    showMessage("First Click On the Show Button.");
+    showMessage("Please click the Show button first.");
   }
 });
 
@@ -58,7 +66,14 @@ selector.addEventListener("change", (e) => {
     MERGED_DATA = [];
     return;
   }
-  MERGED_DATA = mergeRow(value);
+  withLoading(() => {
+    MERGED_DATA = mergeRow(value);
+  });
+});
+
+themeSelector.addEventListener("change", (e) => {
+  THEME = e.target.value;
+  withLoading(() => applyTheme(THEME));
 });
 
 QRCheckbox.addEventListener("change", () => {
@@ -73,12 +88,13 @@ cardWidthInput.addEventListener(
   "keyup",
   debounce((e) => {
     const value = e.target.value;
-    const cardMaxWidth = `${value}px`;
-    if (value < 200 || value > window.innerWidth) {
-      showMessage("Your width is invalid!");
+    if (!isValidWidth(value, window.innerWidth)) {
+      showMessage("Your card width is invalid.");
       return;
     }
-    cardsContainer.style.maxWidth = cardMaxWidth;
+    withLoading(() => {
+      cardsContainer.style.maxWidth = `${value}px`;
+    });
   }, 500),
 );
 
@@ -86,20 +102,21 @@ cardMinHeightInput.addEventListener(
   "keyup",
   debounce((e) => {
     const value = e.target.value;
-    const cardMinHeight = `${value}px`;
-    if (value < 110 || value > window.innerHeight) {
-      showMessage("Your width is invalid!");
+    if (!isValidHeight(value, window.innerHeight)) {
+      showMessage("Your card height is invalid.");
       return;
     }
-    document
-      .querySelectorAll(".card")
-      .forEach((card) => (card.style.minHeight = cardMinHeight));
+    withLoading(() => {
+      document
+        .querySelectorAll(".card")
+        .forEach((card) => (card.style.minHeight = `${value}px`));
+    });
   }, 500),
 );
 
 searchInput.addEventListener(
   "keyup",
   debounce((e) => {
-    searchInCards(e.target.value);
+    withLoading(() => searchInCards(e.target.value));
   }, 500),
 );

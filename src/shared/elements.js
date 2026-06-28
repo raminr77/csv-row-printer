@@ -6,6 +6,7 @@ const printBtn = document.querySelector(".print-btn");
 const cancelBtn = document.querySelector(".cancel-btn");
 const fileInput = document.querySelector(".file-input");
 const selector = document.querySelector(".js-selector");
+const themeSelector = document.querySelector(".js-theme-selector");
 const searchInput = document.querySelector(".search-input");
 const footerInput = document.querySelector(".footer-input");
 const headerInput = document.querySelector(".header-input");
@@ -25,7 +26,7 @@ const labelFormContainer = document.querySelector(".label-form-container");
 const labelItemsContainer = document.querySelector(".label-form-container__items");
 const QRColLayoutCheckbox = document.querySelector(".js-col-layout-checkbox input");
 const advancedSettingsContainer = document.querySelector(
-  ".js-advanced-settings-ccontainer",
+  ".js-advanced-settings-container",
 );
 const advancedSettingsCheckbox = document.querySelector(
   ".js-advanced-settings-checkbox input",

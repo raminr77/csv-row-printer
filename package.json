@@ -3,20 +3,24 @@
   "license": "ISC",
   "version": "1.2.0",
   "main": "./src/index.js",
+  "type": "module",
   "author": "Ramin Rezaei - ramin.rezaei77@gmail.com",
-  "description": "Create & Print Card from CSV Row Data",
+  "description": "Create & Print Cards from CSV Row Data",
   "scripts": {
-    "husky": "husky install",
-    "format": "npx prettier src/**/*.js --write",
-    "sass": "sass --watch src/assets/styles/main.scss:src/assets/styles/main.min.css --style compressed --update"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "dev": "sass --watch src/assets/styles/main.scss:src/assets/styles/main.min.css --style compressed --update",
+    "build": "sass src/assets/styles/main.scss:src/assets/styles/main.min.css --style compressed --no-source-map",
+    "format": "prettier \"src/**/*.{js,scss}\" \"tests/**/*.js\" --write",
+    "format:check": "prettier \"src/**/*.{js,scss}\" \"tests/**/*.js\" --check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepare": "husky"
   },
   "lint-staged": {
     "src/**/*.{js,scss}": [
+      "prettier --write"
+    ],
+    "tests/**/*.js": [
       "prettier --write"
     ]
   },
@@ -25,19 +29,25 @@
     "url": "git+https://github.com/raminr77/csv-row-printer.git"
   },
   "keywords": [
-    "CSV",
-    "CSV",
+    "csv",
     "row",
-    "printer"
+    "printer",
+    "print",
+    "pdf",
+    "qrcode",
+    "card"
   ],
   "bugs": {
     "url": "https://github.com/raminr77/csv-row-printer/issues"
   },
   "homepage": "https://github.com/raminr77/csv-row-printer#readme",
   "devDependencies": {
+    "@vitest/coverage-v8": "^4.1.9",
     "husky": "^9.1.7",
-    "prettier": "3.8.1",
-    "sass": "^1.97.3"
+    "lint-staged": "^17.0.8",
+    "prettier": "^3.8.1",
+    "sass": "^1.101.0",
+    "vitest": "^4.1.9"
   },
-  "packageManager": "pnpm@10.30.3"
+  "packageManager": "pnpm@11.9.0"
 }

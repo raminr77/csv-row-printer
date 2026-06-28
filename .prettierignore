@@ -1,3 +1,8 @@
 *.svg
 *.png
-/assets/libs/*
+*.gif
+*.min.css
+*.min.css.map
+src/assets/libs/*
+coverage
+node_modules

@@ -1,0 +1,5 @@
+pnpm test ||
+  (
+    echo '❌ Tests failed, aborting push'
+    false
+  )

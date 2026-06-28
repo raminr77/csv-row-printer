@@ -1,71 +1,71 @@
 .btn-row {
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	margin-top: 16px;
-	align-items: center;
-	justify-content: center;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  align-items: center;
+  justify-content: center;
 }
 .print-btn {
-	border: none;
-	color: #FFF;
-	cursor: pointer;
-	font-size: 16px;
-	margin-top: 16px;
-	margin-left: 8px;
-	padding: 6px 30px;
-	border-radius: 8px;
-	transition-duration: 0.3s;
-	background-color: #66BB6A;
-	&:hover {
-		background-color: #4CAF50;
-	}
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 16px;
+  margin-left: 8px;
+  padding: 6px 30px;
+  border-radius: 8px;
+  transition-duration: 0.3s;
+  background-color: #66bb6a;
+  &:hover {
+    background-color: #4caf50;
+  }
 }
 .show-btn {
-	border: none;
-	color: #FFF;
-	cursor: pointer;
-	font-size: 16px;
-	margin-top: 16px;
-	margin-left: 8px;
-	padding: 6px 30px;
-	border-radius: 8px;
-	transition-duration: 0.3s;
-	background-color: #1E88E5;
-	&:hover {
-		background-color: #1565C0;
-	}
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 16px;
+  margin-left: 8px;
+  padding: 6px 30px;
+  border-radius: 8px;
+  transition-duration: 0.3s;
+  background-color: #1e88e5;
+  &:hover {
+    background-color: #1565c0;
+  }
 }
 .cancel-btn {
-	border: none;
-	color: #FFF;
-	cursor: pointer;
-	font-size: 16px;
-	margin-top: 16px;
-	margin-left: 8px;
-	padding: 6px 30px;
-	border-radius: 8px;
-	transition-duration: 0.3s;
-	background-color: #E91E63;
-	&:hover {
-		background-color: #D81B60;
-	}
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 16px;
+  margin-left: 8px;
+  padding: 6px 30px;
+  border-radius: 8px;
+  transition-duration: 0.3s;
+  background-color: #e91e63;
+  &:hover {
+    background-color: #d81b60;
+  }
 }
 
 .top-btn {
-    right: 30px;
-	bottom: 30px;
-	position: fixed;
-    cursor: pointer;
-    line-height: 30px;
-    padding: 8px 16px;
-    border-radius: 8px;
-	background: #fff;
-    text-decoration: none;
-	border: 1px dashed #eee;
-    transition-duration: 300ms;
-	&:hover {
-		border-color: #ddd;
-		background: rgba(238, 238, 238, 0.5);
-	}
+  right: 30px;
+  bottom: 30px;
+  position: fixed;
+  cursor: pointer;
+  line-height: 30px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: #fff;
+  text-decoration: none;
+  border: 1px dashed #eee;
+  transition-duration: 300ms;
+  &:hover {
+    border-color: #ddd;
+    background: rgba(238, 238, 238, 0.5);
+  }
 }

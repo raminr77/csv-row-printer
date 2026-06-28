@@ -1,18 +1,29 @@
-import { changeLabel, debounce, toggleLoading } from "./utils.js";
+import { changeLabel, debounce } from "./utils.js";
+import { mergeRows, CARD_THEMES } from "../core/core.js";
 
 export function createSelectorItem() {
   const noneOption = document.createElement("option");
   noneOption.value = "";
-  noneOption.innerHTML = "None";
+  noneOption.textContent = "None";
   selector.appendChild(noneOption);
 
-  COLS_TITLE.map((cols, index) => {
+  COLS_TITLE.forEach((cols, index) => {
     const option = document.createElement("option");
     option.value = index;
-    option.innerHTML = cols;
+    option.textContent = cols;
     selector.appendChild(option);
   });
   selector.disabled = false;
+}
+
+export function createThemeOptions() {
+  if (themeSelector.options.length > 0) return;
+  CARD_THEMES.forEach((theme) => {
+    const option = document.createElement("option");
+    option.value = theme.key;
+    option.textContent = theme.label;
+    themeSelector.appendChild(option);
+  });
 }
 
 export function createColItem(text, value) {
@@ -20,7 +31,7 @@ export function createColItem(text, value) {
   const input = document.createElement("input");
   input.value = value;
   input.type = "checkbox";
-  label.classList = "js-checkbox";
+  label.className = "js-checkbox";
   label.appendChild(input);
   label.append(text);
   colsContainer.appendChild(label);
@@ -31,7 +42,7 @@ export function createLabelsInput(label) {
   const labelInput = document.createElement("input");
 
   labelInput.value = label;
-  labelRow.classList = "label-edit-row";
+  labelRow.className = "label-edit-row";
 
   labelRow.appendChild(labelInput);
   labelItemsContainer.appendChild(labelRow);
@@ -45,22 +56,10 @@ export function createLabelsInput(label) {
 }
 
 export function mergeRow(colIndex) {
-  const keys = {};
-  const tempData = [];
-  DATA.forEach((item) => {
-    if (keys[item[colIndex]]) {
-      let tempDataIndex = Object.keys(keys).indexOf(item[colIndex]);
-      item.forEach((col, index) => {
-        if (item[index] !== tempData[tempDataIndex][index]) {
-          tempData[tempDataIndex][index] += `, ${item[index]}`;
-        }
-      });
-    } else {
-      keys[item[colIndex]] = true;
-      tempData.push(item);
-    }
-  });
+  const tempData = mergeRows(DATA, colIndex);
   rangeStartInput.value = 1;
   rangeEndInput.value = tempData.length;
+  rangeEndInput.max = tempData.length;
+  rangeStartInput.max = tempData.length;
   return tempData;
 }

@@ -1,80 +1,147 @@
 .cards-container {
-	width: 90%;
-	margin: 20px auto;
-	max-width: 600px;
+  width: 90%;
+  margin: 20px auto;
+  max-width: 600px;
 }
 .card {
-	display: flex;
-	padding: 16px;
-	min-height: 110px;
-	border-radius: 8px;
-	margin-bottom: 16px;
-	flex-direction: column;
-	border: 1px dashed #2C3E50;
-	h3 {
-		width: 100%;
-		font-size: 22px;
-		text-align: center;
-		margin-bottom: 14px;
-		padding-bottom: 8px;
-		border-bottom: 1px solid #ddd;
-	}
-	p {
-		color: #ddd;
-		font-size: 14px;
-		margin-top: 8px;
-		padding-top: 8px;
-		text-align: center;
-		border-top: 1px solid #ddd;
-	}
+  // Theme variables (overridden by .theme-* classes below).
+  --card-bg: #ffffff;
+  --card-border: #2c3e50;
+  --card-heading: #2c3e50;
+  --card-label: #2c3e50;
+  --card-value: #2c3e50;
+  --card-divider: #dddddd;
+  --card-footer: #888888;
+
+  display: flex;
+  padding: 16px;
+  min-height: 110px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  flex-direction: column;
+  background-color: var(--card-bg);
+  border: 1px dashed var(--card-border);
+  h3 {
+    width: 100%;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    color: var(--card-heading);
+    border-bottom: 1px solid var(--card-divider);
+  }
+  p {
+    font-size: 14px;
+    margin-top: 8px;
+    padding-top: 8px;
+    text-align: center;
+    color: var(--card-footer);
+    border-top: 1px solid var(--card-divider);
+  }
 }
+
+// Color themes
+.card.theme-ocean {
+  --card-bg: #e8f4fd;
+  --card-border: #1e88e5;
+  --card-heading: #0d47a1;
+  --card-label: #1565c0;
+  --card-value: #0d47a1;
+  --card-divider: #b3d7f5;
+  --card-footer: #5c8fc4;
+}
+.card.theme-sunset {
+  --card-bg: #fff3e8;
+  --card-border: #fb8c00;
+  --card-heading: #bf360c;
+  --card-label: #e65100;
+  --card-value: #5d4037;
+  --card-divider: #f6d2b0;
+  --card-footer: #b07a52;
+}
+.card.theme-forest {
+  --card-bg: #e9f7ec;
+  --card-border: #43a047;
+  --card-heading: #1b5e20;
+  --card-label: #2e7d32;
+  --card-value: #1b5e20;
+  --card-divider: #bfe3c5;
+  --card-footer: #6aa56f;
+}
+.card.theme-grape {
+  --card-bg: #f4ecfb;
+  --card-border: #8e24aa;
+  --card-heading: #4a148c;
+  --card-label: #6a1b9a;
+  --card-value: #4a148c;
+  --card-divider: #ddc7ec;
+  --card-footer: #9670b0;
+}
+.card.theme-slate {
+  --card-bg: #2c3e50;
+  --card-border: #1a252f;
+  --card-heading: #ecf0f1;
+  --card-label: #bdc3c7;
+  --card-value: #ecf0f1;
+  --card-divider: #46627f;
+  --card-footer: #95a5a6;
+}
+
 .card-content {
-	width: 100%;
-	display: flex;
-	align-items: flex-start;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
 }
 .card-content.is-rtl {
-	direction: rtl;
+  direction: rtl;
 }
 
 .card-content.is-col {
-	flex-direction: column-reverse;
-	.qr-div {
-		margin-bottom: 16px;
-	}
+  flex-direction: column-reverse;
+  .qr-div {
+    margin-bottom: 16px;
+  }
 }
 
 .card-row-container {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .card-row {
-	display: flex;
-	margin-bottom: 8px;
-	align-items: center;
+  display: flex;
+  margin-bottom: 8px;
+  align-items: center;
 }
 .card-row.is-rtl {
-	direction: rtl;
+  direction: rtl;
 }
 .card-item-label {
-	font-size: 14px;
-	font-weight: bold;
-	white-space: nowrap;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  color: var(--card-label);
 }
 .card-item-value {
-	font-size: 16px;
-	padding: 0 10px;
+  font-size: 16px;
+  padding: 0 10px;
+  color: var(--card-value);
 }
 
-// QR Code 
+// QR Code
 .qr-div {
-	height: 100px;
-	overflow: hidden;
-	min-width: 100px;
-	max-width: 100px;
-	max-height: 100px;
+  padding: 8px;
+  display: flex;
+  height: 100px;
+  overflow: hidden;
+  min-width: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
 }
 .qr-data {
-	margin-bottom: 22px;
+  margin-bottom: 22px;
 }

@@ -1,29 +1,42 @@
 import { createCard } from "./card.js";
-import { showMessage, toggleLoading } from "./utils.js";
+import { showMessage, showLoading, hideLoading } from "./utils.js";
 import { createColItem, createLabelsInput, createSelectorItem } from "./configForm.js";
+import { sliceRange, filterRowByCols } from "../core/core.js";
 
 export function readCSV(csv) {
   if (!Papa || !Papa.parse) {
     showMessage("Server Error");
     return;
   }
-  toggleLoading();
+  showLoading();
   Papa.parse(csv, {
+    // Stream the file row-by-row in a background thread so large files
+    // (hundreds of MB) parse without freezing the UI or exhausting memory.
+    worker: true,
+    skipEmptyLines: "greedy",
     step: (results) => {
-      if (results.errors?.lenght > 0) {
-        showMessage("Your File Has A Problem.");
-        console.error("Error: ", results.errors);
+      if (results.errors?.length > 0) {
+        console.error("CSV parse error: ", results.errors);
       }
       DATA.push(results.data);
     },
+    error: (error) => {
+      hideLoading();
+      console.error("CSV parse error: ", error);
+      showMessage("Your file could not be parsed.");
+    },
     complete: () => {
+      if (DATA.length === 0) {
+        hideLoading();
+        showMessage("Your file is empty.");
+        return;
+      }
       COLS_TITLE = DATA.shift();
       colsContainer.innerHTML = "";
-      COLS_TITLE.map((item, index) => createColItem(item, index));
+      COLS_TITLE.forEach((item, index) => createColItem(item, index));
       configContainer.classList.remove("u-hidden");
-      toggleLoading();
+      hideLoading();
       createSelectorItem();
-      DATA.pop(); // remove empty row
       rangeStartInput.value = 1;
       rangeEndInput.max = DATA.length;
       rangeStartInput.max = DATA.length;
@@ -34,7 +47,7 @@ export function readCSV(csv) {
 
 export function filterCSVData(selectedCols = []) {
   if (selectedCols.length === 0) {
-    showMessage("Select the columns you want!");
+    showMessage("Please select at least one column.");
     return;
   }
   cardsContainer.innerHTML = "";
@@ -43,23 +56,31 @@ export function filterCSVData(selectedCols = []) {
   const headerText = headerInput.value;
   const CSV_DATA = MERGED_DATA.length > 0 ? MERGED_DATA : DATA;
 
-  let dataTemp = CSV_DATA.slice(
-    parseInt(rangeStartInput.value) - 1,
-    parseInt(rangeEndInput.value),
-  );
+  const dataTemp = sliceRange(CSV_DATA, rangeStartInput.value, rangeEndInput.value);
+
+  // Batch every card into a fragment so the DOM is touched once, even for
+  // tens of thousands of rows.
+  const fragment = document.createDocumentFragment();
   let labels = [];
+  let hasMissingCols = false;
+
   dataTemp.forEach((dataItem) => {
-    let filteredRowData = dataItem.filter((itemCol, itemIndex) =>
-      selectedCols.includes(itemIndex),
-    );
+    const filteredRowData = filterRowByCols(dataItem, selectedCols);
     if (filteredRowData.length > 0) {
       labels = filteredRowData;
-      createCard(filteredRowData, selectedCols, headerText, footerText);
+      createCard(filteredRowData, selectedCols, headerText, footerText, fragment);
     } else {
-      showMessage("Some of your lines do not have the columns value!", true);
+      hasMissingCols = true;
     }
   });
-  labels.forEach((value, index) => {
+
+  cardsContainer.appendChild(fragment);
+
+  if (hasMissingCols) {
+    showMessage("Some rows are missing the selected columns.", true);
+  }
+
+  labels.forEach((_value, index) => {
     createLabelsInput(COLS_TITLE[selectedCols[index]]);
   });
   labelFormContainer.classList.remove("u-hidden");

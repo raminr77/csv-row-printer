@@ -1,9 +1,10 @@
 import { showMessage } from "./utils.js";
 import { filterCSVData } from "./csv.js";
+import { resolveQRData, themeClassName } from "../core/core.js";
 
 export function showCards() {
   if (QRCheckbox.checked && !QRData.value) {
-    showMessage("Type Your QR Data!");
+    showMessage("Please type your QR data.");
     return;
   }
   let checkedItem = [];
@@ -13,7 +14,13 @@ export function showCards() {
   filterCSVData(checkedItem);
 }
 
-export function createCard(cardData = [], selectedCols = [], headerText, footerText) {
+export function createCard(
+  cardData = [],
+  selectedCols = [],
+  headerText,
+  footerText,
+  parent = cardsContainer,
+) {
   const card = document.createElement("div");
   const footer = document.createElement("p");
   const header = document.createElement("h3");
@@ -21,13 +28,13 @@ export function createCard(cardData = [], selectedCols = [], headerText, footerT
   const cardContent = document.createElement("div");
   const cardRowContainer = document.createElement("div");
 
-  footer.innerHTML = footerText;
-  header.innerHTML = headerText;
+  footer.textContent = footerText;
+  header.textContent = headerText;
 
-  card.classList = "card";
-  qrDiv.classList = "qr-div";
-  cardRowContainer.classList = "card-row-container";
-  cardContent.classList = "card-content";
+  card.className = `card ${themeClassName(THEME)}`;
+  qrDiv.className = "qr-div";
+  cardRowContainer.className = "card-row-container";
+  cardContent.className = "card-content";
   if (RTLCheckbox.checked) {
     cardContent.classList.add("is-rtl");
   }
@@ -38,27 +45,22 @@ export function createCard(cardData = [], selectedCols = [], headerText, footerT
   if (headerText) {
     card.appendChild(header);
   }
-  let QRColData = "";
+
+  const labels = selectedCols.map((colIndex) => COLS_TITLE[colIndex]);
   cardData.forEach((value, index) => {
     const row = document.createElement("div");
-    const label = COLS_TITLE[selectedCols[index]];
+    const label = labels[index];
     const labelElm = document.createElement("label");
     const valueElm = document.createElement("label");
-    row.classList = RTLCheckbox.checked ? "card-row is-rtl" : "card-row";
+    row.className = RTLCheckbox.checked ? "card-row is-rtl" : "card-row";
     labelElm.setAttribute("data-label-id", label);
-    labelElm.classList = "card-item-label";
-    valueElm.classList = "card-item-value";
-    labelElm.innerHTML = label + " : ";
-    valueElm.innerHTML = value;
+    labelElm.className = "card-item-label";
+    valueElm.className = "card-item-value";
+    labelElm.textContent = `${label} : `;
+    valueElm.textContent = value;
     row.appendChild(labelElm);
     row.appendChild(valueElm);
     cardRowContainer.appendChild(row);
-
-    if (QRData.value === label) {
-      QRColData = value;
-    } else {
-      QRColData = QRData.value;
-    }
   });
 
   cardContent.appendChild(cardRowContainer);
@@ -66,7 +68,7 @@ export function createCard(cardData = [], selectedCols = [], headerText, footerT
     new QRCode(qrDiv, {
       width: 100,
       height: 100,
-      text: QRColData,
+      text: resolveQRData(cardData, labels, QRData.value),
       colorDark: "#000000",
       colorLight: "#ffffff",
       correctLevel: QRCode.CorrectLevel.H,
@@ -77,5 +79,5 @@ export function createCard(cardData = [], selectedCols = [], headerText, footerT
   if (footerText) {
     card.appendChild(footer);
   }
-  cardsContainer.appendChild(card);
+  parent.appendChild(card);
 }

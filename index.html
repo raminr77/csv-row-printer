@@ -50,45 +50,53 @@
       <img id="top" src="./src/assets/icon.png" alt="CSV Printer" />
       <h1>CSV Row Printer</h1>
       <span>
-        After uploading your file, select the columns you want and
-        <strong>Print</strong> or <strong>Save PDF</strong> them as organized and designed
-        pages.
+        Upload a CSV file, pick the columns you need, then turn every row into a clean,
+        printable card — ready to <strong>Print</strong> or <strong>Save as PDF</strong>.
+        Everything runs in your browser; large files are streamed so nothing is uploaded
+        to a server.
         <br />
-        You can viwe the
-        <a href="https://github.com/raminr77/csv-row-printer" target="blank">GitHub</a>
-        page.
+        Learn more on the
+        <a href="https://github.com/raminr77/csv-row-printer" target="_blank"
+          >GitHub page</a
+        >.
       </span>
 
-      <!-- Mesages -->
+      <!-- Messages -->
       <p class="js-message u-hidden"></p>
 
       <!-- Upload Form -->
       <form>
         <label class="custom-upload-btn">
-          <div class="upload-btn-text">Select Your CSV File</div>
+          <div class="upload-btn-text">Select your CSV file</div>
           <input class="file-input" type="file" accept=".csv" />
         </label>
       </form>
 
       <!-- Settings -->
       <div class="print-config-container u-hidden">
-        <p>Select Your Cols</p>
+        <p>Select the columns to print</p>
         <div class="cols-item-form cols-container"></div>
         <br />
         <label class="js-advanced-settings-checkbox"
-          ><input type="checkbox" />Advanced Settings</label
+          ><input type="checkbox" />Advanced settings</label
         >
-        <div class="config-row js-advanced-settings-ccontainer u-hidden">
-          <p>Advanced Settings</p>
+        <div class="config-row js-advanced-settings-container u-hidden">
+          <p>Advanced settings</p>
+
+          <label class="selector" style="margin-bottom: 16px">
+            <div class="config-form-label">Card theme:</div>
+            <select class="js-theme-selector"></select>
+          </label>
+
           <label class="js-qr-checkbox"><input type="checkbox" />QR Code</label>
           <input
             class="qr-data u-hidden"
             type="text"
-            placeholder="Type Your QR Data Or Selected Cols Name ..."
+            placeholder="QR text, or a selected column name to use its value …"
           />
-          <label class="js-rtl-checkbox"><input type="checkbox" />RTL Card</label>
+          <label class="js-rtl-checkbox"><input type="checkbox" />RTL card</label>
           <label class="js-col-layout-checkbox"
-            ><input type="checkbox" />Columns Layout ( For QR )</label
+            ><input type="checkbox" />Stacked layout (for QR)</label
           >
 
           <div class="range">
@@ -117,12 +125,12 @@
           </div>
 
           <label class="selector" style="margin-top: 20px">
-            <div class="config-form-label">Merge Rows With:</div>
+            <div class="config-form-label">Merge rows by:</div>
             <select class="js-selector"></select>
           </label>
 
           <div class="range">
-            <div class="config-form-label">Row Range:</div>
+            <div class="config-form-label">Row range:</div>
             <div class="range-inputs">
               <input
                 min="1"
@@ -139,13 +147,13 @@
               class="header-input"
               maxlength="40"
               type="text"
-              placeholder="Type Your Header Text ..."
+              placeholder="Header text (optional) …"
             />
             <input
               class="footer-input"
               maxlength="40"
               type="text"
-              placeholder="Type Your Footer Text ..."
+              placeholder="Footer text (optional) …"
             />
           </div>
         </div>
@@ -159,12 +167,12 @@
 
     <!-- LABEL Form -->
     <div class="label-form-container u-hidden">
-      <p>Search Your Text (<span class="js-result-count"></span> Rows ):</p>
+      <p>Search cards ( <span class="js-result-count"></span> rows ):</p>
       <div class="label-edit-row">
-        <input class="search-input" maxlength="40" type="text" placeholder="Search ..." />
+        <input class="search-input" maxlength="40" type="text" placeholder="Search …" />
       </div>
       <br />
-      <p>Change Your Labels Text:</p>
+      <p>Rename column labels:</p>
       <div class="label-form-container__items"></div>
     </div>
 
