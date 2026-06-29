@@ -2,21 +2,22 @@
   display: none;
 }
 .u-loading {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   opacity: 0;
-  z-index: -1;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  z-index: 9999;
   display: flex;
   position: fixed;
+  visibility: hidden;
+  pointer-events: none;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  transition-duration: 0.5s;
   background-color: rgba(0, 0, 0, 0.8);
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
   p {
     color: #fff;
     font-size: 14px;
@@ -29,7 +30,8 @@
 }
 .u-loading.is-active {
   opacity: 1;
-  z-index: 10;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 @keyframes loading-animation {
