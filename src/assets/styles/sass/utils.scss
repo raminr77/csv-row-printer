@@ -15,9 +15,10 @@
   flex-direction: column;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.8);
+  // Fade out smoothly when hidden (transition applies toward this base state).
   transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
+    opacity 0.25s ease,
+    visibility 0.25s ease;
   p {
     color: #fff;
     font-size: 14px;
@@ -32,6 +33,9 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  // Appear instantly so the overlay is fully painted before any blocking
+  // synchronous work (e.g. rendering thousands of cards) freezes the thread.
+  transition: none;
 }
 
 @keyframes loading-animation {

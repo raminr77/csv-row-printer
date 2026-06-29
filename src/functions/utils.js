@@ -10,24 +10,30 @@ export function hideLoading() {
 
 /**
  * Show the loading overlay, let the browser actually paint it, then run the
- * (potentially blocking) synchronous `task` and hide the overlay again.
+ * (potentially blocking) synchronous `task`.
  *
  * The double requestAnimationFrame guarantees the overlay is rendered before
- * the main thread is blocked by `task`. Returns a Promise that resolves once
- * the task has finished.
+ * the main thread is blocked by `task`. The overlay then stays visible for at
+ * least `minVisibleMs` so that even very fast actions show a perceptible
+ * loading state. Returns a Promise that resolves once the task has finished.
  */
-export function withLoading(task) {
+export function withLoading(task, minVisibleMs = 400) {
   showLoading();
   return new Promise((resolve, reject) => {
     requestAnimationFrame(() =>
       requestAnimationFrame(() => {
+        let result;
+        let error;
         try {
-          resolve(task());
-        } catch (error) {
-          reject(error);
-        } finally {
-          hideLoading();
+          result = task();
+        } catch (e) {
+          error = e;
         }
+        setTimeout(() => {
+          hideLoading();
+          if (error) reject(error);
+          else resolve(result);
+        }, minVisibleMs);
       }),
     );
   });
